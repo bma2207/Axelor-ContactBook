@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.0.xsd">
+
+  <search name="contact-search" title="ConatactSearch" limit="100">
+
+    <search-fields>
+      <field name="contact" type="reference" target="com.axelor.contact.db.ContactBean" />
+
+    </search-fields>
+
+    <result-fields>
+      <field name="fullName" type="string" />
+      <field name="dateOfbirth" type="date" />
+      <field name="contactNo" type="string"/>
+      <field name="address"  type="string"/>
+      <field name="emailId" type="string" />
+    </result-fields>
+
+    <select model="com.axelor.contact.db.ContactBean"
+      orderBy="fullName">
+      <field name="fullName" as="fullName " />
+
+      <where match="any">
+        <input name="firstName" field="firstName" matchStyle="contains" />
+
+      </where>
+    </select>
+
+
+
+
+  </search>
+</object-views>

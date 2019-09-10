@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views
+  http://axelor.com/xml/ns/object-views/object-views_5.0.xsd">
+
+  <menuitem name="menu-contact-book" title="Contact Book" />
+   <menuitem name="menu-order" title="Product" />
+
+    <menuitem name="menu-sale-order"
+    parent="menu-order" title="All Order" action="order.all" />
+
+  <menuitem name="menu-contact-friends"
+    parent="menu-contact-book" title="All Contact" action="contact.all" />
+
+  <menuitem name="menu-business" parent="menu-contact-book"
+    title="Business." action="contact.business" />
+
+  <menuitem name="menu-family" parent="menu-contact-book"
+    title="Family Members." action="contact.family" />
+
+  <menuitem name="menu-friends" parent="menu-contact-book"
+    title="Friends." action="contact.friend" />
+
+  <menuitem name="configration_menu" parent="menu-contact-book"
+    title="Configration" />
+
+  <menuitem name="configrationSub1_menu"
+    parent="configration_menu" title="Circal"
+    action="configrationSub1.all" />
+
+  <menuitem name="configrationSub2_menu"
+    parent="configration_menu" title="Country"
+    action="configrationSub2.all" />
+
+  <menuitem name="Title_menu" parent="configration_menu"
+    title="Title" action="title.all" />
+
+  <menuitem name="company_menu" parent="configration_menu"
+    title="Comapy" action="company.all" />
+
+
+
+  <menuitem name="menu-sales-order" parent="menu-contact-book"
+    title="Search" action="contactSearch.all" />
+
+
+
+  <action-view name="contact.all" title="Contacts"
+    model="com.axelor.contact.db.ContactBean">
+    <view type="grid" name="contact-grid" />
+    <view type="cards" name="cards-views" />
+    <view type="form" name="contact-form" />
+    <context name="json-enhance" expr="true" />
+  </action-view>
+
+  <action-view name="contact.business"
+    title="Business Members." model="com.axelor.contact.db.ContactBean">
+    <view type="grid" name="contact-grid" />
+    <view type="form" name="contact-form" />
+    <domain>self.circalList[].circal = :name</domain>
+    <context name="name" expr="Business" />
+  </action-view>
+
+  <action-view name="contact.family" title="Family Members."
+    model="com.axelor.contact.db.ContactBean">
+    <view type="grid" name="contact-grid" />
+    <view type="form" name="contact-form" />
+    <domain>self.circalList[].circal = :name</domain>
+    <context name="name" expr="Family" />
+  </action-view>
+
+  <action-view name="contact.friend" title="Friends."
+    model="com.axelor.contact.db.ContactBean">
+    <view type="grid" name="contact-grid" />
+    <view type="form" name="contact-form" />
+    <domain>self.circalList[].circal = :name</domain>
+    <context name="name" expr="Friends" />
+  </action-view>
+
+  <action-view name="configrationSub1.all" title="Circal"
+    model="com.axelor.contact.db.ContactCircalBean">
+    <view type="grid" name="circal-grid" />
+    <view type="form" name="circal-form" />
+  </action-view>
+  <action-view name="configrationSub2.all" title="Country"
+    model="com.axelor.contact.db.Country">
+    <view type="grid" name="country-grid" />
+    <view type="form" name="country-form" />
+  </action-view>
+  <action-view name="title.all" title="Title"
+    model="com.axelor.contact.db.Title">
+    <view type="grid" name="Title-Grid" />
+    <view type="form" name="Title-Form" />
+  </action-view>
+  <action-view name="company.all" title="Company"
+    model="com.axelor.contact.db.Company">
+    <view type="grid" name="company-grid" />
+    <view type="form" name="company-form" />
+  </action-view>
+
+  <action-view name="contactSearch.all"
+    model="com.axelor.contact.db.ContactBean" title="Conatct Search...">
+    <view type="search" name="contact-search" />
+  </action-view>
+
+    <action-view name="order.all"
+    model="com.axelor.contact.db.Order" title="Order..">
+   <view type="grid" name="order-Grid" />
+    <view type="form" name="order-Form" />
+  </action-view>
+
+</object-views>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views
+  http://axelor.com/xml/ns/object-views/object-views_5.0.xsd">
+<cards name="cards-view" title="card" model="com.axelor.contact.db.Cardbean" >
+  <field name="name" />
+  <field name="contactNo" />
+  <template><![CDATA[
+  <div class="span4 card-image">
+   <img ng-if="hasImage" ng-src="{{$image(null, 'image')}}">
+    <img ng-if="!hasImage" src="img/user.jpg" >
+    <strong>{{name}}</strong>
+  </div>
+  ]]></template>
+</cards>
+<form name="card-form" title="card"
+    model="com.axelor.contact.db.Cardbean" css="panel-pink">
+    <panel title="cardDetails">
+        <field name="name" title="Name"/>
+        <field name="conatctNo" title="Contact"/>
+    </panel>
+  </form>
+</object-views>

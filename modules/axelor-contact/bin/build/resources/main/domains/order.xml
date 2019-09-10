@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_5.1.xsd">
+
+  <module name="sale" package="com.axelor.contact.db"/>
+
+  <sequence name="sale.order.seq" initial="1" increment="1" padding="5" prefix="SO"/>
+
+
+
+  <entity name="Order" sequential="true">
+
+    <string name="no" sequence="sale.order.seq" readonly="true" />
+    <string name="customer"/>
+   <date name="orderDate" />
+
+
+
+  </entity>
+
+</domain-models>

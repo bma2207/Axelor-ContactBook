@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<country
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+  <country code="FR" name="France" />
+  <country code="DE" name="Germany" />
+  <country code="ES" name="Spain" />
+  <country code="UK" name="United Kingdom" />
+  <country code="US" name="United States" />
+  <country code="CH" name="China" />
+  <country code="IN" name="India" />
+  <country code="BR" name="Brazil" />
+
+</country>

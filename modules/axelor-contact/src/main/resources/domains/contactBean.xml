@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models
+  xmlns="http://axelor.com/xml/ns/domain-models"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/domain-models
+  http://axelor.com/xml/ns/domain-models/domain-models_5.0.xsd">
+
+  <module name="contact" package="com.axelor.contact.db" />
+
+  <entity name="ContactBean" cachable="true">
+
+    <binary name="image" title="Photo" help="Max size 4MB."
+      image="true" />
+    <many-to-one name="titles" ref="Title" />
+
+    <string name="firstName" namecolumn="true" unique="true" />
+    <string name="lastName" unique="true"/>
+    <string name="fullName"><![CDATA[
+    if (firstName == null && lastName == null)
+      return null;
+    if (titles == null)
+        return firstName + " " + lastName;
+    return titles.getName() + " "+ firstName + " " + lastName;
+    ]]></string>
+    <date name="dateOfbirth" />
+    <string name="systemDate"/>
+    <string name="gender" selection="gender_selection"/>
+    <string name="contactNo" title="Contact Number" min="10" max="10" />
+    <!--One to many relation between contact and address -->
+    <many-to-many name="circalList"
+      ref="com.axelor.contact.db.ContactCircalBean" />
+    <one-to-many name="addresses"
+      ref="com.axelor.contact.db.AddressBean" mappedBy="contact" />
+    <many-to-one ref="Company" name="comapnyss" />
+    <string name="emailId" title="EmailId" />
+
+  </entity>
+
+</domain-models>
+
+
+<!--Many to one relation between contact and address -->
+<!-- <many-to-one name="address" ref="com.axelor.contact.db.AddressBean"/> -->
+<!-- <many-to-many name="addresses" ref="com.axelor.contact.db.AddressBean"
+  /> -->

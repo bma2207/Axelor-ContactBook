@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models
+  xmlns="http://axelor.com/xml/ns/domain-models"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/domain-models
+  http://axelor.com/xml/ns/domain-models/domain-models_5.0.xsd">
+
+  <module name="contact" package="com.axelor.contact.db" />
+
+  <entity name="AddressBean" cachable="true">
+    <string name="street" namecolumn="true" />
+    <string name="area" namecolumn="true"/>
+    <string name="city" namecolumn="true"/>
+    <string name="zip" />
+    <many-to-one name="country" ref="Country"/>
+    <!--Many to One relation between contact and address -->
+    <!-- <many-to-one name="contactBean" ref="com.axelor.contact.db.ContactBean"/> -->
+
+    <!--One to many relation between contact and address -->
+    <!-- <one-to-many name="contactBean" ref="com.axelor.contact.db.ContactBean"
+      mappedBy="address" /> -->
+
+    <many-to-one name="contact" ref="com.axelor.contact.db.ContactBean" />
+  </entity>
+
+</domain-models>

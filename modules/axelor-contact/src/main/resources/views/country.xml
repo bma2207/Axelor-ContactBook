@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views
+  http://axelor.com/xml/ns/object-views/object-views_5.0.xsd">
+
+
+  <grid model="com.axelor.contact.db.Country" title="Country"
+    name="country-grid">
+    <field name="name"></field>
+    <field name="code"></field>
+  </grid>
+
+  <form name="country-form" model="com.axelor.contact.db.Country"
+    title="Country">
+
+    <panel>
+      <field name="name" />
+      <field name="code" />
+
+       <button name="btnExport" title="Export" showIf="id" onClick="export.contact.call"/>
+    </panel>
+
+  </form>
+
+  <action-export name="export.contact.call"
+    output="${name}/${date}${time}" download="true">
+    <export name="${name}.xml"
+      template="data-export/export-contact.st" />
+  </action-export>
+</object-views>

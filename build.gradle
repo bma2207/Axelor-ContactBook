@@ -1,0 +1,52 @@
+buildscript {
+  ext.repos = {
+    jcenter()
+    mavenCentral()
+    mavenLocal()
+    maven { url 'https://plugins.gradle.org/m2/' }
+    maven { url 'https://repository.axelor.com/nexus/public/' }
+  }
+  ext.adkVersion = '5.0.+'
+  ext.appVersion = '5.0.4'
+  repositories repos
+  dependencies {
+    classpath "com.axelor:axelor-gradle:${adkVersion}"
+  }
+}
+
+allprojects {
+  repositories repos
+}
+
+apply plugin: 'idea'
+apply plugin: 'eclipse'
+apply plugin: "com.axelor.app"
+
+apply from: './gradle/style.gradle'
+
+axelor {
+  title = "Axelor :: AddressBook"
+}
+
+allprojects {
+  apply plugin: 'idea'
+  apply plugin: 'eclipse'
+
+  group = "com.axelor"
+  version = "${appVersion}"
+
+  sourceCompatibility = 1.8
+  targetCompatibility = 1.8
+}
+
+dependencies {
+  // add module dependencies
+  compile project(":modules:axelor-contact")
+  // https://mvnrepository.com/artifact/org.springframework/spring-beans
+  compile group: 'org.springframework', name: 'spring-beans', version: '5.1.4.RELEASE'
+  // https://mvnrepository.com/artifact/com.google.inject/guice
+  compile group: 'com.google.inject', name: 'guice', version: '4.2.1'
+
+
+
+}

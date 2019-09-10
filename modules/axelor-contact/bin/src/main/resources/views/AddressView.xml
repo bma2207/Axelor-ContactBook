@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views
+  http://axelor.com/xml/ns/object-views/object-views_5.0.xsd">
+
+  <grid name="Address-grid" title="Address"
+    model="com.axelor.contact.db.AddressBean">
+    <field name="street" />
+    <field name="area" />
+    <field name="city" />
+    <field name="zip" />
+    <field name="country"  widget="SuggestBox" />
+  </grid>
+
+
+
+
+  <form name="Address-form" title="Address"
+    model="com.axelor.contact.db.AddressBean">
+    <panel title="Overview">
+
+      <field name="street" />
+      <field name="area" />
+      <field name="city" />
+      <field name="zip" />
+      <field name="country" />
+      <!-- This is for one address have many contacts -->
+      <!-- <panel-related field="contactBean" name="addressPanel" /> -->
+
+
+    </panel>
+
+
+  </form>
+
+</object-views>
